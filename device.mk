@@ -148,7 +148,8 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
     libgnsspps \
-    gps.msm8953
+    gps.msm8953 \
+    libshims_get_process_name
 
 # IPA Manager
 PRODUCT_PACKAGES += \
