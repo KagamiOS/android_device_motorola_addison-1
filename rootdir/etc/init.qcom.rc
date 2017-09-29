@@ -542,7 +542,7 @@ service ipacm-diag /system/bin/ipacm-diag
     class main
     user system
     socket ipacm_log_file dgram 660 system net_admin
-    group net_admin qcom_diag
+    group net_admin diag
 
 service ipacm /system/bin/ipacm
     class main
@@ -552,7 +552,7 @@ service ipacm /system/bin/ipacm
 service qti /system/vendor/bin/qti
     class main
     user radio
-    group radio qcom_diag usb
+    group radio diag usb
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -597,7 +597,7 @@ service ril-daemon /system/bin/rild
     socket cutback stream 660 media radio
     socket wpa_wlan0 dgram 660 wifi wifi
     user root
-    group radio cache inet misc audio log diag qcom_diag net_raw wifi compass
+    group radio cache inet misc audio log diag net_raw wifi compass
     writepid /dev/cpuset/system-background/tasks
 
 service ril-daemon2 /system/bin/rild -c 2
@@ -605,7 +605,7 @@ service ril-daemon2 /system/bin/rild -c 2
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
     user root
-    group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag diag log
+    group radio cache inet misc audio sdcard_r sdcard_rw diag log
 
 service rild2-wrapper /system/bin/sh /system/etc/init.qcom.ril.sh
     class late_start
@@ -621,7 +621,7 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqb
 service loc_launcher /system/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
-    group gps inet qcom_diag wifi
+    group gps inet diag wifi
 
 on charger
     wait /dev/block/bootdevice/by-name/system
